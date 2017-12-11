@@ -12,3 +12,8 @@
 4. 打开`index.html`显示`打包成功啦`
 5. 在`package.json`文件中的`scripts`添加运行脚本`"dev": "webpack src/main.js dist/main.js"`
 6. 运行`npm run dev`即可对项目进行打包
+
+## 第三步 创建`webpack`配置文件
+1. 在根目录下创建`webpack.config`文件夹，保存对于`wepback`的相关配置
+2. 在`webpack.config`文件夹下创建`base.js`,存放无论是在开发环境下还是在生产环境都需要用到的配置
+3. 修改`package.json`中`script`的`dev`的脚本为`"dev": "webpack --config=webpack.config/base.js"` 
