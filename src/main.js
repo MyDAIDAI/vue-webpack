@@ -1,2 +1,7 @@
-var app = document.getElementById('app')
-app.innerHTML = '打包成功啦'
+import Vue from 'vue'
+import Home from 'views/Home'
+new Vue({
+  el: '#app',
+  template: '<Home/>',
+  components: { Home }
+})

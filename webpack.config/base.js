@@ -9,5 +9,17 @@ module.exports = {
   output: {
     path: resolve('dist'), // 打包出口目录
     filename: 'main.js' //出口文件名
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js',
+      'views': resolve('src/views'),
+    },
+    extensions: ['.js', '.vue'], //引用js和vue文件可以省略后缀名
+  },
+  module: {
+    loaders: [
+      {test: /\.vue$/, loader: 'vue-loader'},
+    ]
   }
 }

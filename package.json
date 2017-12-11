@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/MyDAIDAI/vue-webpack#readme",
   "devDependencies": {
+    "vue-loader": "^13.5.0",
     "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "vue": "^2.5.9",
+    "vue-template-compiler": "^2.5.9"
   }
 }
