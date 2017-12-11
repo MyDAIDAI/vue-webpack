@@ -23,31 +23,35 @@
 2. 安装`vue-loader`， 运行`npm install --save-dev vue-loader` 
 3. 安装`vue-template-compiler`，运行`npm install --save vue-template-compiler`
 4. 修改`main.js`中的代码为`vue`实例化代码
-    import Vue from 'vue'
-    import Home from 'views/Home'
-    new Vue({
-      el: '#app',
-      template: '<Home/>',
-      components: { Home }
-    })
+    ` 
+      import Vue from 'vue'
+      import Home from 'views/Home'
+      new Vue({
+        el: '#app',
+        template: '<Home/>',
+        components: { Home }
+      })
+    `
 5. 在`src`中添加`views`文件夹存放`vue`页面组件, 在`views`文件夹中新建`Home.vue`文件
-    <template>
-      <div id="app">
-        <div>{{message}}</div>
-      </div>
-    </template>
-
-    <script>
-    export default {
-      name: 'app',
-      data () {
-        return {
-          message: 'hello vue',
-        }
-      },
-    }
-    </script>
+    `
+      <template>
+        <div id="app">
+          <div>{{message}}</div>
+        </div>
+      </template>
+      <script>
+      export default {
+        name: 'app',
+        data () {
+          return {
+            message: 'hello vue',
+          }
+        },
+      }
+      </script>
+    `
 6. 在`base.js`中添加别名配置以及`loaders`配置, 添加后的配置如下:
+  `
     const path = require('path') // 引入node.js中的path模块，处理文件与目录路径
     // 获取文件路径 _dirname为当前文件所在路径，join将其拼接为路径
     function resolve (dir) {
@@ -73,4 +77,5 @@
         ]
       }
     }
+  `
 7. 运行`npm run dev`，在浏览器中打开`index.html`，页面显示`hello vue`即成功!
