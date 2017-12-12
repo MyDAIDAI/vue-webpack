@@ -8,19 +8,28 @@ module.exports = {
   entry: resolve('src/main.js'), // 打包入口文件
   output: {
     path: resolve('dist'), // 打包出口目录
-    filename: 'main.js' //出口文件名
+    filename: 'main.js' // 出口文件名
   },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'views': resolve('src/views'),
+      'views': resolve('src/views')
     },
-    extensions: ['.js', '.vue'], //引用js和vue文件可以省略后缀名
+    extensions: ['.js', '.vue'] // 引用js和vue文件可以省略后缀名
   },
   module: {
     loaders: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: "pre",
+        include: [resolve('src')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {test: /\.vue$/, loader: 'vue-loader'},
-      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/}
+      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
     ]
   }
 }

@@ -3,13 +3,12 @@
     <div>{{message}}</div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'app',
   data () {
     return {
-      message: '',
+      message: ''
     }
   },
   mounted () {
@@ -17,6 +16,7 @@ export default {
   },
   methods: {
     getMessage () {
+      let test = ''
       this.message = 'hello vue，webpack.HotModuleReplaceMentPlugin is OK'
     }
   }

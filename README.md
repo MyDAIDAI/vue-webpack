@@ -164,3 +164,37 @@
   ```
 2. 在`package.json`中的`script`添加脚本 `"build": "webpack --config=webpack.config/pro.js"`
 3. 运行`npm run build`成功 
+
+## 第八步 配置`eslint`
+1. 在根目录下新建名为`.eslintrc`文件
+2. 安装`eslint eslint-loader babel-eslint eslint-config-standard eslint-plugin-standard eslint-plugin-html eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-friendly-formatter`
+3. 在`.eslintrc`文件中添加如下配置： 
+  ```
+  {
+    "parser": "babel-eslint", // 支持babel
+    "extends": "standard", // 使用eslint-config-standard的配置
+    "plugins": [
+      "html" // 支持.vue文件的检测
+    ],
+    "env": {
+      "browser": true, // 不会将window上的全局变量判断为未定义的变量
+      "es6": true // 支持es6的语法
+    },
+    "rules": { // 自定义个别规则写在这，0忽略，1警告，2报错
+      "no-unused-vars": 1 // 将”未使用的变量“调整为警告级别，原为错误级别，更多规则请看官网
+    }
+  }
+  ```
+4. 在`base.js`的`loaders`中添加如下配置：
+  ```
+    {
+      test: /\.(js|vue)$/,
+      loader: 'eslint-loader',
+      enforce: "pre",
+      include: [resolve('src'), resolve('test')],
+      options: {
+        formatter: require('eslint-friendly-formatter')
+      }
+    },
+  ```
+5. 测试`eslint`，在`Home.vue`中添加`let test = ''`，运行后报错，`eslint`配置成功
