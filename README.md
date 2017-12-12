@@ -3,11 +3,11 @@
 1. 本教程是在[[造轮子教程]十分钟搭建Webpack+Vue项目](https://github.com/varHarrie/YmxvZw/issues/7)的基础上，根据自己的理解整理而成
 1. 整个搭建环境基于`vue2`以及`webpack3`
 1. 搭建过程中遇到问题，感谢以下作者的帮助：
-    [http://blog.csdn.net/zhangchao19890805/article/details/53375934](http://blog.csdn.net/zhangchao19890805/article/details/53375934)
-    [http://blog.csdn.net/fengjingyu168/article/details/72911421](http://blog.csdn.net/fengjingyu168/article/details/72911421)
-    [http://www.codes51.com/itwd/4378014.html](http://www.codes51.com/itwd/4378014.html)
+    - [http://blog.csdn.net/zhangchao19890805/article/details/53375934](http://blog.csdn.net/zhangchao19890805/article/details/53375934)
+    - [http://blog.csdn.net/fengjingyu168/article/details/72911421](http://blog.csdn.net/fengjingyu168/article/details/72911421)
+    - [http://www.codes51.com/itwd/4378014.html](http://www.codes51.com/itwd/4378014.html)
 1. 操作中的每一步对应一个分支，请切换相应分支查看
-1. [我的`github`](https://github.com/MyDAIDAI/vue-webpack)
+1. [我的github](https://github.com/MyDAIDAI/vue-webpack)
 
 ## 第一步 初始化项目
 1. 运行`npm init -y`创建`package.json`文件
