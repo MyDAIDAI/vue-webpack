@@ -92,7 +92,7 @@
   ```
 5. 测试是否成, 运行`npm run dev`,打开`index.html`
 
-## 第六步 安装配置`webpack`开发插件
+## 第六步 安装配置`webpack`开发环境插件
 1. 安装`wepack-merge`，运行`npm install --save-dev webpack-merge`
 2. 在`webpack.config`文件夹中新建`dev.js`，添加基本配置
   ```
@@ -130,3 +130,37 @@
     })
   ```
 8. 修改`Home.vue`中的代码，测试成功!
+
+## 第七步 安装配置`webpack`生产环境插件
+1. 在`webpack.config`文件夹下添加`pro.js`文件, 并添加如下配置:
+  ```
+    const path = require('path')
+    const webpack = require('webpack')
+    const merge = require('webpack-merge')
+    const baseConfig = require('./base')
+    const root = path.resolve(__dirname, '..')
+    const HtmlWebpackPlugin = require('html-webpack-plugin')
+    const ExtractTextPlugin = require('extract-text-webpack-plugin') 
+
+    module.exports = merge(baseConfig, {
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: path.join(root, 'index.html'),
+          inject: 'body'
+        }),
+        new ExtractTextPlugin("style.css"), // 需要安装
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          },
+          sourceMap: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'vendor',
+          filename: 'vendor-[hash].min.js'
+        })
+      ]
+    })
+  ```
+2. 在`package.json`中的`script`添加脚本 `"build": "webpack --config=webpack.config/pro.js"`
+3. 运行`npm run build`成功 
