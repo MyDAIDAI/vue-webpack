@@ -79,3 +79,15 @@
     }
   ```
 7. 运行`npm run dev`，在浏览器中打开`index.html`，页面显示`hello vue`即成功!
+
+## 第五步 安装配置`babel`以及其他`loader`
+1. 运行`npm install --save-dev babel-loader babel-core babel-plugin-transform-runtime babel-preset-es2015`
+2. 运行`npm install --save-dev css-loader vue-style-loader` 
+3. 在`base.js`中配置`js`的`babel-loader`, `{test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/}`
+4. 在根目录下添加`babel`配置文件`.babelrc` 
+  ```
+  {
+    "presets": ["es2015"]
+  }
+  ```
+5. 测试是否成, 运行`npm run dev`,打开`index.html`
