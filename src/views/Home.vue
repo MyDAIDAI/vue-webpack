@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     getMessage () {
-      this.message = 'hello vue'
+      this.message = 'hello vue，webpack.HotModuleReplaceMentPlugin is OK'
     }
   }
 }

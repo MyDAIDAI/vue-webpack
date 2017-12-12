@@ -91,3 +91,42 @@
   }
   ```
 5. 测试是否成, 运行`npm run dev`,打开`index.html`
+
+## 第六步 安装配置`webpack`开发插件
+1. 安装`wepack-merge`，运行`npm install --save-dev webpack-merge`
+2. 在`webpack.config`文件夹中新建`dev.js`，添加基本配置
+  ```
+    const path = require('path') // 引入path
+    const webpack = require('webpack') // 引入webpack
+    const merge = require('webpack-merge') // 引入webpack-merge
+    const baseConfig = require('./base') // 引入基本配置
+    const root = path.resolve(__dirname, '..')
+
+    module.exports = merge(baseConfig, {
+    })
+  ```
+3. 添加`webpack`的`dev-server`服务器，配置如下：
+  ```
+    devServer: {
+      inline: true,  //实时编译
+      port: 3000,
+      progress: true, // 显示打包进度
+      historyApiFallback: true
+    }
+  ```
+4. 修改`package.json`中`script`的`dev`脚本：`"dev": "webpack-dev-server --config=webpack.config/dev.js"`
+5. 在浏览器中打开`http://localhost:3000/`页面，显示`hello vue`，服务器配置成功!
+6. 添加热替换插件`HotModuleReplacementPlugin`，在`dev.js`中添加如下配置:
+  ```
+    plugins: [
+      new webpack.HotModuleReplacementPlugin() //webpack内部插件，不需要安装
+    ]
+  ```
+7. 安装`HtmlWebpackPlugin`插件，运行`npm install --save-dev html-webpack-plugin`, 添加配置信息
+  ```
+    new HtmlWebpackPlugin({
+      template: path.join(root, 'index.html'),
+      inject: 'body'
+    })
+  ```
+8. 修改`Home.vue`中的代码，测试成功!
